@@ -1,0 +1,83 @@
+Adjust Image Contrast — Chrome Web Store Listing
+================================================
+
+NAME
+----
+Adjust Image Contrast
+
+
+SHORT DESCRIPTION (max 132 characters)
+--------------------------------------
+Click any image on a webpage and adjust its contrast with a slider. Local-only — no upload, no download.
+
+
+DETAILED DESCRIPTION (paste into Store listing)
+-----------------------------------------------
+Adjust Image Contrast lets you boost or soften contrast on any image directly on the webpage you’re viewing.
+
+HOW TO USE
+1. Open the extension popup and click “Start Selecting”.
+2. Hover over images on the page (they highlight with a dashed outline).
+3. Click an image to select it.
+4. Drag the contrast slider in the floating panel (0%–200%; 100% = original).
+5. Click another image to switch, or press Esc to exit.
+
+WHAT YOU GET
+• Select any <img> on the page with one click
+• Live contrast preview as you move the slider
+• Values above 100% increase punch; below 100% soften the look
+• Reset to original (100%) or deselect anytime
+• Lightweight on-page HUD so you can adjust after the popup closes
+• No download feature — changes stay on the page for quick visual tweaks
+
+IDEAL FOR
+• Quickly checking how a photo looks with more or less contrast
+• Design and content reviews in the browser
+• Recovering punch in flat-looking images during review
+• Anyone who needs a fast on-page contrast preview
+
+PERMISSIONS
+This extension only accesses the active tab so it can highlight images and apply a local CSS contrast filter. Images never leave your device. Nothing is uploaded to a server.
+
+Tips: Use it on regular http/https pages. Special browser pages (chrome://, about:, etc.) are not supported.
+
+Related full online tool (with download): https://www.rockimg.com/adjust-image-contrast.html
+
+
+CATEGORY
+--------
+Photos
+
+
+LANGUAGE
+--------
+English
+
+
+SINGLE PURPOSE (Privacy practices form)
+---------------------------------------
+Select images on web pages and adjust their contrast locally in the browser.
+
+
+JUSTIFICATION FOR PERMISSIONS
+-----------------------------
+• activeTab — Interact with the current tab when the user starts selecting images.
+• scripting — Inject the selection UI and contrast controls into the active page.
+• storage — Temporarily save selection mode state locally (session storage).
+
+
+DATA USAGE ANSWERS (typical dashboard choices)
+----------------------------------------------
+• Does the extension collect / transmit user data? No
+• Does it use remote code? No
+• Does it sell user data? No
+• Does it use data for purposes unrelated to core functionality? No
+
+
+FIREFOX / AMO NOTES
+-------------------
+• Extension ID (manifest): adjust-image-contrast@rockimg.com
+• Data collection: none (declared in browser_specific_settings.gecko)
+• Upload zip: AdjustImageContrast-firefox.zip
+• Privacy policy: host privacy.html (e.g. GitHub Pages) before store submission
+• Related site tool: https://www.rockimg.com/adjust-image-contrast.html

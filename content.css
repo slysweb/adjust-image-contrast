@@ -1,0 +1,150 @@
+:root.aic-active img,
+:root.aic-active picture {
+  cursor: crosshair !important;
+}
+
+.aic-hidden {
+  display: none !important;
+}
+
+img.aic-hover,
+.aic-hover {
+  outline: 3px dashed rgba(79, 70, 229, 0.85) !important;
+  outline-offset: 2px !important;
+}
+
+img.aic-selected,
+.aic-selected {
+  outline: 3px solid #4f46e5 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.25) !important;
+}
+
+.aic-hud {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: min(320px, calc(100vw - 32px));
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  z-index: 2147483647;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.18);
+  color: #0f172a;
+  font: 13px/1.4 "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  pointer-events: auto;
+  cursor: default !important;
+}
+
+.aic-hud * {
+  cursor: default !important;
+  box-sizing: border-box;
+}
+
+.aic-hud button {
+  cursor: pointer !important;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #eef2ff;
+  color: #0f172a;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font: inherit;
+}
+
+.aic-hud button:hover:not(:disabled) {
+  background: #e0e7ff;
+}
+
+.aic-hud button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed !important;
+}
+
+.aic-hud-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.aic-hud-header strong {
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.aic-hud-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.aic-hud-live {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 12px;
+  word-break: break-word;
+}
+
+.aic-hud-slider-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+.aic-hud-slider-head #aic-value {
+  font-family: ui-monospace, Consolas, monospace;
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+.aic-hud input[type="range"] {
+  width: 100%;
+  accent-color: #4f46e5;
+  cursor: pointer !important;
+}
+
+.aic-hud input[type="range"]:disabled {
+  cursor: not-allowed !important;
+}
+
+.aic-hud-slider-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #64748b;
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.aic-hud-hint {
+  color: #64748b;
+  font-size: 11px;
+}
+
+.aic-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%) translateY(12px);
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #fff;
+  font: 12px/1.4 "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2147483647;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.aic-toast-show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

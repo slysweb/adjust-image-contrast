@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Adjust Image Contrast</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="panel">
+      <header>
+        <h1>Adjust Contrast</h1>
+        <p>Click an image on the page, then move the slider to boost or soften contrast.</p>
+      </header>
+
+      <section class="status">
+        <span id="status-dot" class="dot"></span>
+        <span id="status-text">Inactive</span>
+      </section>
+
+      <button id="toggle-btn" type="button" class="primary">Start Selecting</button>
+
+      <section class="controls" id="controls">
+        <div class="controls-head">
+          <h2>Contrast</h2>
+          <span id="contrast-value" class="value">100%</span>
+        </div>
+        <input
+          id="contrast-slider"
+          type="range"
+          min="0"
+          max="200"
+          value="100"
+          step="1"
+          disabled
+        />
+        <div class="slider-labels">
+          <span>0%</span>
+          <span>100%</span>
+          <span>200%</span>
+        </div>
+        <div class="controls-actions">
+          <button id="reset-btn" type="button" disabled>Reset</button>
+          <button id="deselect-btn" type="button" class="ghost" disabled>Deselect</button>
+        </div>
+      </section>
+
+      <footer>
+        Above 100% increases punch · Below softens · No download ·
+        <a href="https://www.rockimg.com/adjust-image-contrast.html" target="_blank" rel="noopener"
+          >Full tool</a
+        >
+      </footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
