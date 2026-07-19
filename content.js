@@ -17,6 +17,39 @@
   /** @type {WeakMap<Element, { originalFilter: string, contrast: number }>} */
   const imageState = new WeakMap();
 
+  function storageAvailable() {
+    try {
+      return !!(chrome?.storage?.session);
+    } catch {
+      return false;
+    }
+  }
+
+  function sessionGet(keys, onOk) {
+    if (!storageAvailable()) return;
+    try {
+      chrome.storage.session.get(keys, (data) => {
+        // Some pages disallow storage; acknowledge lastError to avoid console noise.
+        void chrome.runtime.lastError;
+        if (!data) return;
+        onOk(data);
+      });
+    } catch {
+      /* ignore */
+    }
+  }
+
+  function sessionSet(obj) {
+    if (!storageAvailable()) return;
+    try {
+      chrome.storage.session.set(obj, () => {
+        void chrome.runtime.lastError;
+      });
+    } catch {
+      /* ignore */
+    }
+  }
+
   function toast(msg) {
     let t = document.getElementById("aic-toast");
     if (!t) {
@@ -136,24 +169,16 @@
 
   function broadcastSelection() {
     const payload = { type: "AIC_SELECTION_CHANGED", ...getSnapshot() };
-    try {
-      chrome.storage.session.set({
-        [STATE_KEY]: active,
-        [CONTRAST_KEY]: contrast,
-      });
-    } catch {
-      /* ignore */
-    }
+    sessionSet({
+      [STATE_KEY]: active,
+      [CONTRAST_KEY]: contrast,
+    });
     chrome.runtime.sendMessage(payload).catch(() => {});
   }
 
   function broadcastState() {
     const payload = { type: "AIC_STATE", ...getSnapshot() };
-    try {
-      chrome.storage.session.set({ [STATE_KEY]: active });
-    } catch {
-      /* ignore */
-    }
+    sessionSet({ [STATE_KEY]: active });
     chrome.runtime.sendMessage(payload).catch(() => {});
   }
 
@@ -164,11 +189,7 @@
       hasSelection: !!selectedEl,
       active,
     };
-    try {
-      chrome.storage.session.set({ [CONTRAST_KEY]: contrast });
-    } catch {
-      /* ignore */
-    }
+    sessionSet({ [CONTRAST_KEY]: contrast });
     chrome.runtime.sendMessage(payload).catch(() => {});
   }
 
@@ -350,7 +371,7 @@
     return false;
   });
 
-  chrome.storage.session.get([STATE_KEY], (data) => {
+  sessionGet([STATE_KEY], (data) => {
     if (data[STATE_KEY]) setActive(true);
   });
 })();

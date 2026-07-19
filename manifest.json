@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Adjust Image Contrast",
   "description": "Click any image on a webpage and adjust its contrast with a slider — all processing stays in your browser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "browser_specific_settings": {
     "gecko": {
       "id": "adjust-image-contrast@rockimg.com",
